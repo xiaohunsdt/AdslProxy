@@ -75,7 +75,9 @@ class Sender():
             self.remove_proxy()
             # (status, output) = subprocess.getstatusoutput(ADSL_BASH)
             subprocess.getstatusoutput("pppoe-stop")
-            subprocess.getstatusoutput("systemctl stop NetworkManager.service")
+            time.sleep(3)
+            subprocess.getstatusoutput("/bin/systemctl stop NetworkManager.service")
+            time.sleep(3)
             (status, output) = subprocess.getstatusoutput("pppoe-start")
             if status == 0:
                 print('ADSL Successfully')
