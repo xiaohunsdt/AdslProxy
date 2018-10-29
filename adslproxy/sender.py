@@ -51,10 +51,12 @@ class Sender():
         移除代理
         :return: None
         """
-        self.redis = RedisClient()
-        self.redis.remove(CLIENT_NAME)
+        try:
+            self.redis = RedisClient()
+            self.redis.remove(CLIENT_NAME)
+        except:
+            print('remove proxy failed')
         print('Successfully Removed Proxy')
-
     def set_proxy(self, proxy):
         """
         设置代理

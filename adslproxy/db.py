@@ -13,7 +13,7 @@ class RedisClient(object):
         :param password: Redis 密码
         :param proxy_key: Redis 哈希表名
         """
-        self.db = redis.StrictRedis(host=host, port=port, password=password, decode_responses=True)
+        self.db = redis.StrictRedis(host=host, port=port, password=password, decode_responses=True,socket_connect_timeout=5, socket_timeout=5)
         self.proxy_key = proxy_key
     
     def set(self, name, proxy):
