@@ -73,7 +73,10 @@ class Sender():
         while True:
             print('ADSL Start, Remove Proxy, Please wait')
             self.remove_proxy()
-            (status, output) = subprocess.getstatusoutput(ADSL_BASH)
+            # (status, output) = subprocess.getstatusoutput(ADSL_BASH)
+            subprocess.getstatusoutput("pppoe-stop")
+            subprocess.getstatusoutput("systemctl stop NetworkManager.service")
+            (status, output) = subprocess.getstatusoutput("pppoe-start")
             if status == 0:
                 print('ADSL Successfully')
                 ip = self.get_ip()
