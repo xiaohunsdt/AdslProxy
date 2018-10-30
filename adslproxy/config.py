@@ -10,7 +10,7 @@ ADSL_ERROR_CYCLE = 5
 # ADSL_BASH = 'pppoe-stop;systemctl stop NetworkManager.service;pppoe-start'
 
 # 代理运行端口
-PROXY_PORT = 8888
+PROXY_PORT = 1996
 
 # 客户端唯一标识
 CLIENT_NAME = 'adsl1'
